@@ -1,5 +1,4 @@
 from django.db import models
-from django.auth.user import User
 
 import uuid
 
@@ -38,7 +37,6 @@ class Order(models.Model):
         ('pending','pending'),
         ('cancelled','cancelled')
     )
-    user = User(id)
     status = models.CharField(max_length=10,choices=STATUS_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
