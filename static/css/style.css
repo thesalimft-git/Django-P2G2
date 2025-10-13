@@ -1,0 +1,15 @@
+@font-face {
+    font-family: vazir;
+    src: url(../fonts/vazir/Vazirmatn-Regular.woff2);
+}
+@font-face {
+    font-family: iransans;
+    src: url(../fonts/iransans/IRANSansWeb.woff);
+}
+
+
+
+
+*{
+    font-family: "vazir", 'iransans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
