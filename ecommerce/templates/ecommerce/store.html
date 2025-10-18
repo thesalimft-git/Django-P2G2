@@ -3,17 +3,14 @@
 
 {% block content %}
 
-a<div class="d-flex flex-row justify-content-between my-5 px-4">
-    <h1 class="">
-        Products List
-    </h1>
-    <a class="btn btn-success" href="{% url "new_product" %}">
-        new product
-    </button>
-    </a>
-<div class="d-flex px-4 gap-3 flex-wrap">
+<div class="d-flex flex-row justify-content-between my-5 px-4">
+    <h1>Products List</h1>
+    <a class="btn btn-success" href="{% url 'new_product' %}">New Product</a>
+</div>
 
-    {% for product in products%}
+<div class="d-flex px-4 gap-3 flex-wrap">
+    {% for product in products %}
+
 
     <div class="card" style="width: 18rem;">
         {% if product.image %}
