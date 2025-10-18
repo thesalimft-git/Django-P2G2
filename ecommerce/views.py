@@ -63,16 +63,41 @@ class LoginPageView(View):
         
         return render(request,self.template_name,{})
     
-def logout_page(request):
-    if request.method == 'POST':
+# def logout_page(request):
+#     if request.method == 'POST':
+#         logout(request)
+#         return redirect('login_page')
+        
+#     return render(request,'ecommerce/logout.html',{})
+
+
+class LogoutPage(View):
+     template_name = 'ecommerce/logout.html'
+     def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {})
+
+     def post(self, request, *args, **kwargs):
         logout(request)
         return redirect('login_page')
+
+
+class NewProductView(View):
+    template_name = 'ecommerce/new_product.html'
+
+    def get(self, request, *args, **kwargs):
+        form = ProductForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = ProductForm(request.POST, request.FILES)
+
+        return redirect('home_page')
+        return render(request, self.template_name, {'form': form})
+    
         
-    return render(request,'ecommerce/logout.html',{})
-        
-def new_product(reuest):
-    form = ProductForm()
-    return render(reuest,'ecommerce/new_product.html',{
-        'form' : form
-    })
+# def new_product(reuest):
+#     form = ProductForm()
+#     return render(reuest,'ecommerce/new_product.html',{
+#         'form' : form
+#     })
    
