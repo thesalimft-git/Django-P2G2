@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate , login, logout
 from .forms import ProductForm
 from django.views import  View
 from .forms import ContactUsForm
+from .models import ContactUs
 
 # Create your views here.
 class ContactUsPage(View):
@@ -15,6 +16,11 @@ class ContactUsPage(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
+        form_filled = ContactUsForm(data=request.POST)
+        if form_filled.is_valid():
+            form_filled.save()
+        
+        
         return render(request, self.template_name, {})
 
 
