@@ -3,14 +3,18 @@ from .models import Product
 from django.contrib.auth import authenticate , login, logout
 from .forms import ProductForm
 from django.views import  View
+from .forms import ContactUsForm
 
 # Create your views here.
 class ContactUsPage(View):
-     template_name = 'ecommerce/contact_us.html'
-     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {})
+    template_name = 'ecommerce/contact_us.html'
 
-     def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        form = ContactUsForm()
+        context = {'form': form}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
 
 
