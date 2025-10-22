@@ -1,4 +1,11 @@
 from django import forms
+from django.forms import ModelForm
+from .models import ContactUs
+
+class ContactUsForm(ModelForm):
+    class Meta:
+        model = ContactUs
+        fields = ['fullname', 'email', 'message']
 
 
 class ProductForm(forms.Form):
@@ -11,4 +18,6 @@ class ProductForm(forms.Form):
         required=False,
         widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
-    
+
+
+
