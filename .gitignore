@@ -1,3 +1,42 @@
+# my ignore files
 .venv
 .venv/
 .venv/*
+
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+
+# Ignore Django migration files
+**/migrations/*
+!**/migrations/__init__.py  # Keep __init__.py so Django recognizes the folder
+
+
+
+# Virtual Environments #
+.venv/
+.env/
+
+# IDEs & Editors #
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific #
+.DS_Store
+Thumbs.db
+
+# Testing #
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+
+# Local settings #
+local_settings.py
