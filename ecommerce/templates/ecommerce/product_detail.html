@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    product_detail.html
+
+    id =  {{product_id}}
+
+
+    {% if product %}
+        <p>
+            {{product.name}}
+        </p>
+        <p>
+            {{product.price}}
+        </p>
+    {% endif %}
+{% endblock %}
