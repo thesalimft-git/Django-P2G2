@@ -1,2 +1,2 @@
 # Django-P2G2
-Django for Groupd Raraneh-TRNM-SN-RR
+Django for Group Taraneh-TRNM-SN-RR
