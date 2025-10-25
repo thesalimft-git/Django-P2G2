@@ -10,35 +10,32 @@
 
 <div class="d-flex px-4 gap-3 flex-wrap">
     {% for product in products %}
+        <div class="card" style="width: 18rem;">
+            {% if product.image %}
+            <img src="{{product.image.url}}"   #مسیر (URL) فایل آپلود شده استa
+            class="card-img-top"
+            width="200" >
+            {% else %}
+                    <img src="{% static 'img/avatar.png' %}" 
+                    class="card-img-top img-fluid"
+                    width="200" style="max-height: 200px;">
+            
+            
+            {% endif %}
+            
 
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{product.name}}
+                </h5>
 
-    <div class="card" style="width: 18rem;">
-        {% if product.image %}
-        <img src="{{product.image.url}}"   #مسیر (URL) فایل آپلود شده استa
-        class="card-img-top"
-        width="200" >
-        {% else %}
-                <img src="{% static 'img/avatar.png' %}" 
-                class="card-img-top img-fluid"
-                width="200" style="max-height: 200px;">
-        
-        
-        {% endif %}
-        
-
-        <div class="card-body">
-            <h5 class="card-title">
-                {{product.name}}
-            </h5>
-
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-                content.</p>
-            <a href="#" class="btn btn-primary">
-
-                ${{product.price}}
-            </a>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
+                    content.</p>
+                <a href="{% url "product_detail_page" product.id %}" class="btn btn-primary">
+                    Buy ${{product.price}}
+                </a>
+            </div>
         </div>
-    </div>
     {% endfor %}
 </div>
 {% endblock %}

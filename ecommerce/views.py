@@ -5,6 +5,8 @@ from .forms import ProductForm
 from django.views import  View
 from .forms import ContactUsForm
 from .models import ContactUs
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 class ContactUsPage(View):
@@ -23,6 +25,19 @@ class ContactUsPage(View):
         
         return render(request, self.template_name, {})
 
+
+class ProductDetailPageView(View):
+    template_name = 'ecommerce/product_detail.html'  
+    def get(self,request,*args,**kwargs):
+        product_id = kwargs.get('id')
+        # product = Product.objects.get(id=product_id)
+        product = get_object_or_404(Product, pk=product_id)
+        return render(request,
+                      self.template_name,
+                      {
+                          'product_id': product_id,
+                          'product': product
+                       })
 
 
 class StorePageView(View):
