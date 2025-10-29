@@ -24,7 +24,7 @@
           
         </ul>
         {% if user.is_authenticated %}
-          <a <button class="btn btn-primary mx-1"href="{% url 'logout_page' %}">logout</button></a> 
+          <a class="btn btn-primary mx-1"href="{% url 'logout_page' %}">logout</a> 
         {% else %}
           <a class="btn btn-primary mx-1" href="{% url "login_page" %}">login</a>
           <button class="btn btn-primary mx-1">Registre</button>

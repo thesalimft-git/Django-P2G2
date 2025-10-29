@@ -16,11 +16,10 @@
             class="card-img-top"
             width="200" >
             {% else %}
-                    <img src="{% static 'img/avatar.png' %}" 
+                <img src="{% static 'img/avatar.png' %}" 
                     class="card-img-top img-fluid"
-                    width="200" style="max-height: 200px;">
-            
-            
+                    width="200" style="max-height: 200px;"
+                >
             {% endif %}
             
 
@@ -29,11 +28,15 @@
                     {{product.name}}
                 </h5>
 
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-                    content.</p>
-                <a href="{% url "product_detail_page" product.id %}" class="btn btn-primary">
+                <p class="card-text">
+                    {{product.description}}
+                </p>
+                <div class="d-flex flex-row justify-content-between">
+                    <a href="{% url "product_detail_page" product.id %}" class="btn btn-primary">
                     Buy ${{product.price}}
                 </a>
+                <p>#{{product.category}}</p>
+                </div>
             </div>
         </div>
     {% endfor %}
