@@ -2,17 +2,21 @@
 {% load static %}
 
 {% block content %}
-    product_detail.html
-
-    id =  {{product_id}}
-
-
     {% if product %}
-        <p>
-            {{product.name}}
-        </p>
-        <p>
-            {{product.price}}
-        </p>
+    <div class="container mx-auto d-grid mt-5">
+        <div class="col-10 mx-auto">
+            <div class="card" style="width: 80%;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">
+                        {{product.description}}
+                    </p>
+                    <a href="#" class="btn btn-primary">Buy{{product.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
     {% endif %}
 {% endblock %}
