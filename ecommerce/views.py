@@ -7,8 +7,22 @@ from .forms import ContactUsForm
 from .models import ContactUs
 from django.shortcuts import get_object_or_404
 
+class CreateOrderPage(View):
+    template_name = 'ecommerce/card.html'
+    
+    # TODO: change form later
+    def get(self, request, *args, **kwargs):
+        form = ContactUsForm()
+        context = {'form': form}
+        return render(request, self.template_name, context)
 
-# Create your views here.
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login_page')           
+
+        
+        return render(request, self.template_name, {})
+        
 class ContactUsPage(View):
     template_name = 'ecommerce/contact_us.html'
 
@@ -47,6 +61,7 @@ class StorePageView(View):
         return render(request,
                       self.template_name,
                       {'products': products})
+
 
 class LoginPageView(View):
     template_name = 'ecommerce/login.html'

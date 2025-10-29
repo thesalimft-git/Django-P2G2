@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', views.LogoutPage.as_view(), name='logout_page'),
     path('new-product/', views.NewProductView.as_view(), name='new_product'),
     path('contact-us/', views.ContactUsPage.as_view(), name='contact_us_page'),
+    path('create-order/', views.CreateOrderPage.as_view(), name='create_order_page'),
 ]
